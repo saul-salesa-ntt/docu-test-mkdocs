@@ -1,46 +1,29 @@
 # ----------------------------------------------------
 # 1. Entidad: Documentación General (Raíz)
-#    Esta será la que se indexe como "General"
 # ----------------------------------------------------
 apiVersion: backstage.io/v1alpha1
-kind: Documentation
+kind: Component  # <-- CAMBIO CLAVE AQUÍ
 metadata:
-  name: documentacion-plataforma-general # Nombre principal
-  description: Guías, referencias y punto de partida público.
-  tags:
-    - publica
-    - general
-    - techdocs
-  annotations:
-    # A dónde apunta esta entidad (la docu pública)
-    backstage.io/techdocs-ref: dir:./docs-publica/ 
+  name: documentacion-plataforma-general 
+  # ... resto de metadata ...
 spec:
-  owner: equipo-plataforma
+  type: documentation # <--- Usa 'type' para clasificarlo
   lifecycle: production
+  # ... resto de spec ...
 
 ---
 # ----------------------------------------------------
 # 2. Entidad: Documentación Privada (Hija/Relacionada)
-#    Esta es la docu interna que queremos relacionar.
 # ----------------------------------------------------
 apiVersion: backstage.io/v1alpha1
-kind: Documentation
+kind: Component  # <-- CAMBIO CLAVE AQUÍ
 metadata:
-  name: documentacion-plataforma-interna # Nombre específico
-  description: Detalles de arquitectura, runbooks y documentación técnica.
-  tags:
-    - privada
-    - techdocs
-  annotations:
-    # A dónde apunta esta entidad (la docu privada)
-    backstage.io/techdocs-ref: dir:./docs-privada/
-    # RELACIÓN CLAVE: Declara que su 'padre' es la docu general.
-    # Esto ayuda a la navegación y agrupación en Backstage.
-    backstage.io/managed-by-location: url:./catalog-info.yaml
+  name: documentacion-plataforma-interna 
+  # ... resto de metadata ...
 spec:
-  owner: equipo-interno
+  type: documentation # <--- Usa 'type' para clasificarlo
   lifecycle: production
-  # Relacionar como "child" o "parte de" la entidad general
+  # ... resto de spec ...
   dependsOn:
-    - kind: Documentation
+    - kind: Component # Asegúrate de que el kind en dependsOn también cambie
       name: documentacion-plataforma-general
