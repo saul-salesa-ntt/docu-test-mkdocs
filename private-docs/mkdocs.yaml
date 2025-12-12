@@ -1,0 +1,19 @@
+site_name: Documentación Privada del Servicio
+site_description: Documentación interna y técnica para desarrolladores.
+
+nav:
+    - Inicio Interno: index.md
+    - Arquitectura: architecture.md
+    - Despliegue: deployment.md
+
+theme:
+    name: material
+    features:
+        - navigation.tabs
+    palette:
+        scheme: slate # Tema oscuro, para distinguirla visualmente
+        primary: deep-orange
+
+# Configuración básica para TechDocs
+plugins:
+    - techdocs-core

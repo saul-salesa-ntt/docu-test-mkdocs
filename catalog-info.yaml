@@ -1,0 +1,46 @@
+# ----------------------------------------------------
+# 1. Entidad: Documentación General (Raíz)
+#    Esta será la que se indexe como "General"
+# ----------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Documentation
+metadata:
+  name: documentacion-plataforma-general # Nombre principal
+  description: Guías, referencias y punto de partida público.
+  tags:
+    - publica
+    - general
+    - techdocs
+  annotations:
+    # A dónde apunta esta entidad (la docu pública)
+    backstage.io/techdocs-ref: dir:./docs-publica/ 
+spec:
+  owner: equipo-plataforma
+  lifecycle: production
+
+---
+# ----------------------------------------------------
+# 2. Entidad: Documentación Privada (Hija/Relacionada)
+#    Esta es la docu interna que queremos relacionar.
+# ----------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Documentation
+metadata:
+  name: documentacion-plataforma-interna # Nombre específico
+  description: Detalles de arquitectura, runbooks y documentación técnica.
+  tags:
+    - privada
+    - techdocs
+  annotations:
+    # A dónde apunta esta entidad (la docu privada)
+    backstage.io/techdocs-ref: dir:./docs-privada/
+    # RELACIÓN CLAVE: Declara que su 'padre' es la docu general.
+    # Esto ayuda a la navegación y agrupación en Backstage.
+    backstage.io/managed-by-location: url:./catalog-info.yaml
+spec:
+  owner: equipo-interno
+  lifecycle: production
+  # Relacionar como "child" o "parte de" la entidad general
+  dependsOn:
+    - kind: Documentation
+      name: documentacion-plataforma-general

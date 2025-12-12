@@ -1,0 +1,18 @@
+site_name: Documentación Pública del Servicio
+site_description: Guías y referencias de acceso público.
+
+nav:
+    - Inicio Público: index.md
+    - Guía de Usuario: user-guide.md # Ejemplo de página adicional
+
+theme:
+    name: material
+    features:
+        - navigation.tabs
+    palette:
+        scheme: default # Tema claro
+        primary: blue
+
+# Configuración básica para TechDocs
+plugins:
+    - techdocs-core
