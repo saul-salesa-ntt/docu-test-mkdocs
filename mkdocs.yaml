@@ -3,7 +3,6 @@ site_description: Guías y referencias de acceso público.
 
 nav:
     - Inicio Público: index.md
-    - Guía de Usuario: user-guide.md # Ejemplo de página adicional
 
 theme:
     name: material

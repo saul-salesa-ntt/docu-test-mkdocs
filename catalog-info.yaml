@@ -1,29 +1,18 @@
-# ----------------------------------------------------
-# 1. Entidad: Documentación General (Raíz)
-# ----------------------------------------------------
+# catalog-info.yaml
 apiVersion: backstage.io/v1alpha1
-kind: Component  # <-- CAMBIO CLAVE AQUÍ
+kind: Component
 metadata:
   name: documentacion-plataforma-general 
-  # ... resto de metadata ...
-spec:
-  type: documentation # <--- Usa 'type' para clasificarlo
-  lifecycle: production
-  # ... resto de spec ...
+  description: La documentación técnica de la plataforma general de la empresa.
+  tags:
+    - docs
+    - mkdocs
+    - plataforma
+  annotations:
+    # Si tu catalog-info.yaml estuviera en el mismo repo, usarías:
+    backstage.io/techdocs-ref: dir:.
 
----
-# ----------------------------------------------------
-# 2. Entidad: Documentación Privada (Hija/Relacionada)
-# ----------------------------------------------------
-apiVersion: backstage.io/v1alpha1
-kind: Component  # <-- CAMBIO CLAVE AQUÍ
-metadata:
-  name: documentacion-plataforma-interna 
-  # ... resto de metadata ...
 spec:
-  type: documentation # <--- Usa 'type' para clasificarlo
+  type: documentation # Correcto. Categoriza esta entidad como documentación.
   lifecycle: production
-  # ... resto de spec ...
-  dependsOn:
-    - kind: Component # Asegúrate de que el kind en dependsOn también cambie
-      name: documentacion-plataforma-general
+  owner: saul-salesa-ntt
