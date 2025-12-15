@@ -1,6 +1,6 @@
 # 🚀 Bienvenid@ a la Documentación Pública
 
-Esta sección contiene información esencial para **usuarios externos** y la comunidad.
+<!-- Esta sección contiene información esencial para **usuarios externos** y la comunidad.
 
 Aquí encontrarás:
 
@@ -14,4 +14,4 @@ Aquí encontrarás:
 
 Para empezar, navega usando el menú lateral.
 
-Si eres un desarrollador interno, consulta nuestra [Documentación Privada](#).
+Si eres un desarrollador interno, consulta nuestra [Documentación Privada](#). -->
